@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspectiva de Sinaloa CE 2024 - Infografía interactiva</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap");
+
+        :root {
+            --blue-dark: #0b2d6e;
+            --blue-mid: #1f4d8d;
+            --aqua: #00a7a0;
+            --orange: #f68b1f;
+            --sand: #f9f4ec;
+            --gray-900: #1c1c1c;
+            --gray-700: #3f4a5a;
+            --gray-600: #4a4a4a;
+            --gray-300: #d7dbe5;
+            --gray-200: #f4f6fc;
+            --white: #ffffff;
+            --shadow-lg: 0 28px 64px -42px rgba(11, 45, 110, 0.65);
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-padding-top: 96px;
+        }
+
+        body {
+            font-family: "Source Sans 3", "Segoe UI", Tahoma, sans-serif;
+            color: var(--gray-900);
+            background: linear-gradient(180deg, var(--sand) 0%, var(--gray-200) 40%, #eef2fb 100%);
+            line-height: 1.45;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Raleway", "Source Sans 3", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: var(--blue-mid);
+        }
+
+        header {
+            background: linear-gradient(125deg, var(--blue-dark), var(--blue-mid));
+            color: var(--white);
+            padding: 52px 24px 32px;
+            box-shadow: inset 0 -12px 32px -24px rgba(0, 0, 0, 0.45);
+        }
+
+        header .wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            max-width: 720px;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.87);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px;
+            backdrop-filter: blur(6px);
+            position: sticky;
+            top: 16px;
+            z-index: 40;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 12px;
+        }
+
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.22s ease, transform 0.22s ease, color 0.22s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.32);
+            transform: translateY(-2px);
+            color: var(--blue-dark);
+        }
+
+        nav a.is-active {
+            background: var(--white);
+            color: var(--blue-dark);
+            box-shadow: 0 12px 24px -18px rgba(11, 45, 110, 0.9);
+        }
+
+        .quick-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .quick-nav .share-trigger {
+            margin-left: auto;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.34);
+            background: rgba(255,255,255,0.18);
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+        }
+
+        .quick-nav .share-trigger:hover {
+            background: rgba(255,255,255,0.85);
+            color: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .quick-nav .nav-title {
+            font-size: 0.88rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .content {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 32px 24px 72px;
+            display: grid;
+            gap: 32px;
+        }
+
+        .executive-summary {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            gap: 20px;
+            border: 1px solid rgba(11, 45, 110, 0.08);
+        }
+
+        .executive-summary h2 {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            color: var(--blue-dark);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .summary-card {
+            background: linear-gradient(150deg, rgba(0,167,160,0.12), rgba(255,255,255,0.9));
+            border: 1px solid rgba(0, 167, 160, 0.16);
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .summary-card strong {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue-mid);
+        }
+
+        .summary-card span {
+            font-size: 1.18rem;
+            font-weight: 600;
+        }
+
+        .summary-card p {
+            font-size: 0.94rem;
+            color: var(--gray-700);
+        }
+
+        .intro-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 24px 40px -28px rgba(30, 60, 114, 0.35);
+            display: grid;
+            gap: 16px;
+        }
+
+        .intro-card h2 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: var(--blue-dark);
+        }
+
+        .tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(69, 123, 157, 0.12);
+            color: var(--blue-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .highlights {
+            display: grid;
+            gap: 16px;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(145deg, var(--white), #eef2fb);
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid rgba(29, 53, 87, 0.08);
+            display: grid;
+            gap: 8px;
+        }
+
+        .highlight-card span {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .highlight-card strong {
+            font-size: 1.6rem;
+            color: var(--blue-dark);
+        }
+
+        section {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 24px 40px -32px rgba(31, 31, 31, 0.25);
+            display: grid;
+            gap: 22px;
+            border: 1px solid rgba(11, 45, 110, 0.06);
+        }
+
+        section header {
+            background: none;
+            color: inherit;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        section h2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+            color: var(--blue-dark);
+            letter-spacing: 0.04em;
+        }
+
+        section h2::before {
+            content: "";
+            width: 8px;
+            height: 32px;
+            border-radius: 4px;
+            background: var(--aqua);
+        }
+
+        section p {
+            max-width: 880px;
+            color: var(--gray-700);
+            font-size: 1rem;
+        }
+
+        .section-brief {
+            display: grid;
+            gap: 12px;
+            border-left: 4px solid rgba(11, 45, 110, 0.15);
+            padding-left: 18px;
+        }
+
+        .section-brief strong {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--blue-mid);
+        }
+
+        .section-brief ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        .section-brief li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .section-brief li::before {
+            content: "•";
+            color: var(--orange);
+            font-size: 1.2rem;
+            line-height: 1.1;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .section-actions button,
+        .section-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(11, 45, 110, 0.18);
+            background: rgba(11, 45, 110, 0.04);
+            color: var(--blue-mid);
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+
+        .section-actions button:hover,
+        .section-actions a:hover {
+            background: rgba(11, 45, 110, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        figure {
+            background: #fbfcff;
+            border: 1px solid rgba(69, 123, 157, 0.12);
+            border-radius: 14px;
+            padding: 12px 12px 18px;
+            display: grid;
+            gap: 10px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: zoom-in;
+        }
+
+        figure:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 30px -25px rgba(29, 53, 87, 0.55);
+        }
+
+        figure:focus-visible {
+            outline: 3px solid rgba(42, 157, 143, 0.7);
+            outline-offset: 4px;
+        }
+
+        figure img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        figcaption {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+        }
+
+        .figure-insight {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            background: rgba(0, 167, 160, 0.08);
+            border-radius: 10px;
+            padding: 10px 12px;
+            border: 1px solid rgba(0, 167, 160, 0.12);
+        }
+
+        .source-note {
+            font-size: 0.85rem;
+            color: rgba(31,31,31,0.66);
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            font-size: 0.88rem;
+            color: rgba(0,0,0,0.6);
+        }
+
+        .share-bar {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: flex-end;
+            pointer-events: none;
+        }
+
+        .share-bar .share-widget {
+            pointer-events: auto;
+            display: inline-flex;
+            background: var(--white);
+            border-radius: 999px;
+            padding: 10px 16px;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 28px 48px -36px rgba(11, 45, 110, 0.72);
+            border: 1px solid rgba(11, 45, 110, 0.08);
+        }
+
+        .share-bar button {
+            border: none;
+            background: rgba(11, 45, 110, 0.06);
+            color: var(--blue-mid);
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .share-bar button:hover {
+            background: rgba(11, 45, 110, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .share-feedback {
+            font-size: 0.82rem;
+            color: var(--gray-700);
+        }
+
+        /* Botones de compartir ocultos por ahora; mantener estilos para activación futura */
+        .share-trigger,
+        .share-bar {
+            display: none !important;
+        }
+
+        body.lightbox-open {
+            overflow: hidden;
+        }
+
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease;
+            z-index: 900;
+        }
+
+        #lightbox.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-panel {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 32px 60px -35px rgba(15, 23, 42, 0.65);
+            max-width: min(1080px, 90vw);
+            width: 100%;
+            display: grid;
+            gap: 18px;
+            padding: 20px 20px 24px;
+            position: relative;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(29, 53, 87, 0.08);
+            color: var(--blue-dark);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(29, 53, 87, 0.18);
+            transform: scale(1.05);
+        }
+
+        .lightbox-body {
+            display: grid;
+            gap: 16px;
+        }
+
+        .lightbox-body img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .lightbox-info h3 {
+            font-size: 1.25rem;
+            color: var(--blue-dark);
+            margin-bottom: 6px;
+        }
+
+        .lightbox-info p {
+            color: var(--gray-600);
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 860px) {
+            .lightbox-body {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .lightbox-body img {
+                max-height: 72vh;
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 720px) {
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav a {
+                justify-content: center;
+            }
+
+            figure {
+                padding: 10px 10px 16px;
+            }
+
+            .quick-nav {
+                justify-content: center;
+            }
+
+            .section-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .quick-nav .share-trigger {
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+            }
+
+            .share-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div>
+                <span class="tagline">Perspectiva CE 2024</span>
+                <h1>Infografía interactiva · Sinaloa</h1>
+                <p>
+                    Visualiza de forma compacta la información estadística y económica generada en
+                    <code>generacion_unitaria_actualizada.ipynb</code>, la cual alimenta el documento
+                    <em>Perspectiva de Sinaloa CE2024.pdf</em>. Cada gráfica se integra como una pieza
+                    reutilizable para reportes digitales o presentaciones en línea.
+                </p>
+            </div>
+            <div class="quick-nav">
+                <span class="nav-title">Navega por la perspectiva</span>
+                <nav aria-label="Secciones del informe">
+                    <ul>
+                        <li><a href="#conclusiones" class="is-active">Conclusiones</a></li>
+                        <li><a href="#demografia">Demograf&iacute;a y vivienda</a></li>
+                        <li><a href="#mercado-laboral">Mercado laboral</a></li>
+                        <li><a href="#economia">Actividad econ&oacute;mica</a></li>
+                        <li><a href="#empresas">Empresas y empleo</a></li>
+                        <li><a href="#remuneraciones">Estructura salarial</a></li>
+                        <li><a href="#sectores">Sectores clave</a></li>
+                        <li><a href="#activos">Activos y equipamiento</a></li>
+                        <li><a href="#financiamiento">Financiamiento</a></li>
+                    </ul>
+                </nav>
+                <button class="share-trigger" data-share="infografia">Compartir</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+    <section class="executive-summary" id="conclusiones">
+        <h2>Conclusiones clave para la toma de decisiones</h2>
+        <p>
+            Con base en la misión de ADECEM —impulsar el desarrollo económico regional con información estratégica— se
+            resume la posición actual de Sinaloa. Esta síntesis facilita a empresariado, gobierno e inversionistas
+            priorizar proyectos con mayor impacto en competitividad y empleo.
+        </p>
+        <div class="summary-grid">
+            <div class="summary-card">
+                <strong>Ventana demográfica</strong>
+                <span>Bono en marcha</span>
+                <p>La mitad de la población tiene 30 años o menos y la escolaridad media-superior se amplía, lo que abre
+                espacio para capitalizar talento joven.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Tejido empresarial</strong>
+                <span>99.8 mil unidades</span>
+                <p>El 82% de las empresas y 87% del empleo se concentran en cinco municipios; urge descentralizar ayuda y
+                fortalecer cadenas locales.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Competitividad sectorial</strong>
+                <span>PIB 2.06% nacional</span>
+                <p>El agroindustrial y los servicios con alto valor agregado lideran producción; se recomienda alinear
+                incentivos a estas cadenas.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Financiamiento</strong>
+                <span>Crédito insuficiente</span>
+                <p>Las PyMEs dependen de recursos propios; ampliar garantías y productos bancarios especializados mejora la
+                capacidad de escalar.</p>
+            </div>
+        </div>
+        <div class="section-brief">
+            <strong>Qué monitorear</strong>
+            <ul>
+                <li>Seguimiento trimestral a empleo formal y remuneraciones para validar el aprovechamiento del bono demográfico.</li>
+                <li>Mapa de inversión público-privada que conecte infraestructura logística con municipios de vocación exportadora.</li>
+                <li>Paquetes financieros y de capacitación dirigidos a sectores prioritarios (agroindustria, comercio especializado y turismo).</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="conclusiones">Compartir este resumen</button>
+            <a href="Perspectiva de Sinaloa CE2024.pdf" target="_blank" rel="noopener">Descargar PDF CE2024</a>
+            <a href="adecem_home.html" target="_blank" rel="noopener">Revisar línea base ADECEM</a>
+        </div>
+    </section>
+        <article class="intro-card">
+            <span class="tagline">Datos base para la acción</span>
+            <h2>Indicadores que respaldan la agenda ADECEM</h2>
+            <p>
+                Estos valores condensan la realidad socioeconómica que detona la presentación. Facilitan responder qué tan
+                robusta es la demanda interna, cómo se comporta el mercado laboral y dónde enfocar programas de apoyo.
+            </p>
+            <div class="highlights">
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <span>Población total 2020</span>
+                        <strong>3,026,943</strong>
+                        <small>Sinaloa aporta 2.4&nbsp;% de la población nacional, con base en el Censo 2020.</small>
+                    </div>
+                    <div class="highlight-card">
+                        <span>Participación en el PIB nacional</span>
+                        <strong>2.06&nbsp;%</strong>
+                        <small>PIB estatal a precios constantes (2023), referencia para inversionistas.</small>
+                    </div>
+                    <div class="highlight-card">
+                        <span>Razón de dependencia</span>
+                        <strong>50.6</strong>
+                        <small>Personas dependientes por cada 100 en edad productiva; bono demográfico activo.</small>
+                    </div>
+                    <div class="highlight-card">
+                        <span>Unidades económicas</span>
+                        <strong>99,857</strong>
+                        <small>Censo Económico 2024; 5 municipios concentran 82&nbsp;% de las empresas.</small>
+                    </div>
+                </div>
+                <p class="source-note">
+                    Fuentes: INEGI (CPV 2020, Censos Económicos 2024, Banco de Indicadores); cálculos del cuaderno
+                    <code>generacion_unitaria_actualizada.ipynb</code>.
+                </p>
+            </div>
+        </article>
+
+        <section id="demografia">
+            <h2>Demografía y vivienda</h2>
+            <p>
+                El bloque demográfico muestra la dimensión poblacional del estado, la dinámica de crecimiento,
+                la transición etaria y el acceso a equipamiento básico en las viviendas. Estos insumos explican
+                el bono demográfico y los retos de planeación urbana documentados en la presentación oficial.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>El crecimiento poblacional desacelera; la planeación debe migrar de expansión territorial a densificación con servicios.</li>
+                <li>El bono demográfico sigue vigente: la mayoría está en edad productiva con escolaridad media-superior en expansión.</li>
+                <li>Las viviendas muestran alta cobertura de servicios básicos, lo que permite focalizar inversión en calidad y equipamiento.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="demografia">Compartir enfoque demográfico</button>
+            <a href="#mercado-laboral">Ver mercado laboral</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_04_tasa_crecimiento_sinaloa.png" alt="Serie de crecimiento poblacional de Sinaloa 1990-2020">
+                    <figcaption>Evolución censal y tasas de crecimiento 1990-2020.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_05_distribucion_edad.png" alt="Distribución por grupos de edad en Sinaloa">
+                    <figcaption>Estructura de edad y bono demográfico.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_06_razon_dependencia.png" alt="Razón de dependencia en Sinaloa">
+                    <figcaption>Razón de dependencia total y tendencias.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_07_nivel_instruccion.png" alt="Nivel de instrucción de la población sinaloense">
+                    <figcaption>Nivel educativo de la población de 15+ años.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_08_media_superior_superior.png" alt="Cobertura de educación media y superior">
+                    <figcaption>Logro educativo en media superior y superior.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_09_viviendas.png" alt="Características de las viviendas en Sinaloa">
+                    <figcaption>Inventario de viviendas particulares habitadas.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_10_caracteristicas_viviendas.png" alt="Servicios básicos en viviendas sinaloenses">
+                    <figcaption>Servicios y equipamiento en hogares sinaloenses.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="mercado-laboral">
+            <h2>Mercado laboral</h2>
+            <p>
+                La fuerza laboral de Sinaloa destaca por su participación en actividades terciarias y la baja
+                desocupación relativa. Las láminas siguientes documentan ocupación, posición laboral, ingresos
+                y condiciones de informalidad.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>Los servicios concentran la población ocupada; las políticas deben reforzar capacidades digitales y de atención al cliente.</li>
+                <li>La informalidad se mantiene por debajo del promedio nacional, pero la brecha de ingresos evidencia retos de productividad.</li>
+                <li>El bajo desempleo obliga a estrategias de atracción y retención de talento en sectores estratégicos.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="mercado-laboral">Compartir mercado laboral</button>
+            <a href="#economia">Revisar actividad económica</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_16_poblacion_ocupada.png" alt="Población ocupada por sector">
+                    <figcaption>Población ocupada total y estructura sectorial.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_18_ingresos.png" alt="Distribución de ingresos laborales">
+                    <figcaption>Ingresos laborales y rangos salariales.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_19_desocupacion_informalidad.png" alt="Tasas de desocupación e informalidad en Sinaloa">
+                    <figcaption>Tasa de desocupación e informalidad estatal.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_20_desocupacion_informalidad_nacional.png" alt="Comparativo nacional de desocupación e informalidad">
+                    <figcaption>Comparativo nacional: Sinaloa vs. promedio país.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="economia">
+            <h2>Actividad económica</h2>
+            <p>
+                El desempeño macroeconómico evidencia la contribución del estado al PIB y la evolución de la
+                actividad económica local. Los gráficos provienen de series cortas 2020-2024 utilizadas para
+                la narrativa principal del PDF.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>Sinaloa sostuvo una participación de 2.06 % del PIB nacional en 2023; clave para justificar proyectos de infraestructura regional.</li>
+                <li>El ITAE muestra recuperación postpandemia, pero con volatilidad; urge diversificar motores más allá de agro y comercio.</li>
+                <li>Comparar la variación del PIB estatal vs. nacional ayuda a argumentar incentivos fiscales focalizados.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="economia">Compartir desempeño económico</button>
+            <a href="#empresas">Explorar empresas y empleo</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_23_sinaloa.png" alt="Participación de Sinaloa en el PIB nacional">
+                    <figcaption>Participación de Sinaloa en el PIB nacional (2.06%).</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_24_indicador_economico.png" alt="Indicador trimestral de actividad económica">
+                    <figcaption>ITAE: variación interanual 2020-2024.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_25_variacion_pib.png" alt="Variación anual del PIB de Sinaloa">
+                    <figcaption>Variación porcentual del PIB estatal vs. nacional.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="empresas">
+            <h2>Empresas y empleo</h2>
+            <p>
+                La estructura empresarial se deriva del Censo Económico 2024. Se documenta la concentración
+                territorial, tamaños de unidad, personal ocupado, género y otras características clave para
+                políticas de desarrollo regional.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>Cinco municipios concentran unidades y empleo; las cadenas locales requieren logística y financiamiento diferenciados.</li>
+                <li>El tamaño promedio de establecimiento es pequeño, lo que impulsa programas de escalamiento productivo.</li>
+                <li>Los ingresos y sectores más dinámicos orientan campañas de atracción de inversión y clústeres.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="empresas">Compartir mapa empresarial</button>
+            <a href="#remuneraciones">Ir a estructura salarial</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_27_unidades_personal.png" alt="Unidades económicas y personal ocupado">
+                    <figcaption>Unidades económicas vs. personal ocupado.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_29_establecimientos_y_personas_ocupadas.png" alt="Mapa de concentración empresarial">
+                    <figcaption>Concentración de establecimientos y empleo.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_31_tamano_establecimientos.png" alt="Tamaño promedio de establecimientos">
+                    <figcaption>Tamaño de establecimientos por municipio.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_32_ingresos.png" alt="Ingresos por establecimiento">
+                    <figcaption>Ingresos promedio por unidad económica.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_33_sectores.png" alt="Participación de sectores productivos">
+                    <figcaption>Estructura sectorial de unidades censales.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_34_establecimientos.png" alt="Distribución de establecimientos por sector">
+                    <figcaption>Distribución de establecimientos por subsector.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_37_personal_ocupado.png" alt="Personal ocupado por actividad">
+                    <figcaption>Personal ocupado total por actividad.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_41_personal_sexo.png" alt="Personal ocupado por sexo">
+                    <figcaption>Distribución de personal remunerado por sexo.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="remuneraciones">
+            <h2>Estructura salarial y productividad</h2>
+            <p>
+                Estas visualizaciones complementan el análisis de competitividad al detallar remuneraciones,
+                productividad y principales variables económicas para la planta empresarial registrada.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>Las remuneraciones escalan con el tamaño del establecimiento, confirmando la necesidad de profesionalizar PyMEs.</li>
+                <li>Las brechas salariales por subsector identifican industrias con espacio para negociación colectiva.</li>
+                <li>Los gráficos de productividad orientan incentivos para cerrar la brecha ingreso/trabajador.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="remuneraciones">Compartir estructura salarial</button>
+            <a href="#sectores">Analizar sectores clave</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_44_tamano_establecimientos.png" alt="Tamaño de establecimientos por salario">
+                    <figcaption>Tamaño de unidad vs. nivel salarial.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_45_remuneraciones.png" alt="Remuneraciones promedio">
+                    <figcaption>Remuneraciones promedio por persona ocupada.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_46_remuneraciones.png" alt="Remuneraciones por subsector">
+                    <figcaption>Remuneraciones por subsector económico.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_47_remuneraciones.png" alt="Remuneraciones vs. tamaño de la empresa">
+                    <figcaption>Remuneraciones según tamaño de empresa.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_49_dona_tamano.png" alt="Participación por tamaño de las unidades">
+                    <figcaption>Participación porcentual por tamaño de unidad.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_50_pie.png" alt="Distribución de producción bruta">
+                    <figcaption>Producción bruta total por agrupación.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_51_produccion_bruta.png" alt="Productividad por subsector">
+                    <figcaption>Productividad promedio por subsector.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_52_principales_variables.png" alt="Principales variables económicas">
+                    <figcaption>Principales variables económicas comparadas.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="sectores">
+            <h2>Sectores clave y especialización</h2>
+            <p>
+                Los sectores líderes del estado concentran producción y empleo. El análisis permite identificar
+                vocaciones productivas y cadenas prioritarias para atracción de inversión.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>Los sectores líderes concentran unidades y empleo; agroindustria, comercio especializado y turismo encabezando.</li>
+                <li>Priorizar cadenas con alto valor agregado facilita programas de encadenamiento y sustitución de importaciones.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="sectores">Compartir sectores prioritarios</button>
+            <a href="#activos">Ver activos y equipamiento</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_55_pie.png" alt="Participación sectorial en unidades económicas">
+                    <figcaption>Participación sectorial en unidades económicas.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_56_pie.png" alt="Participación sectorial en personal ocupado">
+                    <figcaption>Personal ocupado por sector productivo.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_57_top_ramas.png" alt="Top ramas por producción y empleo">
+                    <figcaption>Top de ramas económicas por producción y empleo.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="activos">
+            <h2>Activos, maquinaria y tecnología</h2>
+            <p>
+                La capitalización de las empresas sinaloenses se refleja en el uso de activos fijos, tecnologías
+                y equipamiento operativo. Estos indicadores complementan el diagnóstico de productividad regional.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>La composición de activos evidencia esfuerzo en maquinaria y equipo, pero aún hay rezagos en digitalización.</li>
+                <li>Tecnologías clave (equipos especializados, TIC) marcan necesidades de crédito y capacitación.</li>
+                <li>Integrar activos con productividad permite priorizar apoyos a empresas con mayor potencial de automatización.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="activos">Compartir equipamiento empresarial</button>
+            <a href="#financiamiento">Ir a financiamiento</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_59_pie.png" alt="Composición de activos fijos">
+                    <figcaption>Composición de activos fijos reportados.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_60_activos.png" alt="Uso de tecnologías y maquinaria">
+                    <figcaption>Uso de tecnologías y maquinaria especializada.</figcaption>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_61_activos.png" alt="Cobertura de tecnologías digitales">
+                    <figcaption>Disponibilidad de tecnologías digitales por unidad.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="financiamiento">
+            <h2>Fuentes de financiamiento empresarial</h2>
+            <p>
+                El acceso al crédito es clave para escalar la actividad económica. Los siguientes tableros reflejan
+                montos, fuentes, antigüedad y destino del financiamiento utilizado por las unidades económicas del estado.
+            </p>
+
+        <div class="section-brief">
+            <strong>Claves para actuar</strong>
+            <ul>
+                <li>El financiamiento externo sigue limitado; muchas unidades dependen de capital propio o proveedores.</li>
+                <li>Las fuentes cambian según la antigüedad de la empresa: nuevas requieren microcrédito, maduras crédito bancario.</li>
+                <li>Uso principal del crédito: capital de trabajo y equipamiento; su cobertura define el ritmo de crecimiento sectorial.</li>
+            </ul>
+        </div>
+        <div class="section-actions">
+            <button class="share-trigger" data-share="financiamiento">Compartir fuentes de financiamiento</button>
+            <a href="#conclusiones">Volver al resumen</a>
+        </div>
+
+            <div class="card-grid">
+                <figure>
+                    <img src="salida/diapositiva_64_financiamiento.png" alt="Situación del financiamiento en Sinaloa">
+                    <figcaption>Panorama general del financiamiento empresarial.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> solo 10.9&nbsp;% de las unidades obtuvo financiamiento en 2023 (13,431 empresas) y la banca concentró el 52.2&nbsp;% del monto colocado.
+                    </div>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_69_fuentes_financiamiento.png" alt="Principales fuentes de financiamiento">
+                    <figcaption>Principales fuentes de financiamiento utilizadas.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> la banca comercial es la fuente dominante (52.2&nbsp;%), seguida de familiares/amigos (17.1&nbsp;%) y proveedores comerciales (13.6&nbsp;%).
+                    </div>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_70_fuentes_por_antiguedad.png" alt="Fuentes según antigüedad de la empresa">
+                    <figcaption>Fuentes según antigüedad de la empresa.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> los negocios jóvenes dependen más de proveedores y esquemas gubernamentales, mientras que las firmas con más de 6 años privilegian el crédito bancario.
+                    </div>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_71_uso_financiamiento.png" alt="Destino del financiamiento">
+                    <figcaption>Destinos principales del financiamiento recibido.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> el crédito se destina sobre todo a capital de trabajo; solo 4,570 empresas lo emplearon para equipamiento o ampliaciones productivas.
+                    </div>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_72_uso_financiamiento_actividad.png" alt="Uso del financiamiento por actividad">
+                    <figcaption>Uso del financiamiento por actividad económica.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> comercio y manufactura concentran el crédito para inventarios y equipamiento, mientras servicios lo asignan a gastos operativos inmediatos.
+                    </div>
+                </figure>
+                <figure>
+                    <img src="salida/diapositiva_73_credito_bancario.png" alt="Acceso al crédito bancario en Sinaloa">
+                    <figcaption>Acceso y condiciones del crédito bancario.</figcaption>
+                    <div class="figure-insight">
+                        <strong>Qué significa:</strong> 1,976 solicitudes bancarias fueron rechazadas por falta de garantías, historial o costos altos, evidenciando barreras de acceso.
+                    </div>
+                </figure>
+            </div>
+        </section>
+        <div class="share-bar">
+        <div class="share-widget">
+            <button class="share-trigger" data-share="infografia">Compartir infograf&iacute;a</button>
+            <span class="share-feedback" aria-live="polite" hidden>Enlace copiado al portapapeles.</span>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        Elaborado automáticamente con los insumos del cuaderno <code>generacion_unitaria_actualizada.ipynb</code>.
+        Archivo listo para incrustarse en sitios web o integrarse al ecosistema ADECEM 2024.
+    </footer>
+
+    <div id="lightbox" aria-hidden="true">
+        <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+            <button type="button" class="lightbox-close" aria-label="Cerrar vista de detalle">&times;</button>
+            <div class="lightbox-body">
+                <img id="lightbox-image" alt="">
+                <div class="lightbox-info">
+                    <h3 id="lightbox-title">Vista ampliada</h3>
+                    <p id="lightbox-description">Descripción automática generada por el sistema.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const doc = document;
+            const lightbox = doc.getElementById('lightbox');
+            const imageEl = doc.getElementById('lightbox-image');
+            const titleEl = doc.getElementById('lightbox-title');
+            const descEl = doc.getElementById('lightbox-description');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            function openLightbox(targetImg, data) {
+                const title = data.title || targetImg.alt || 'Detalle';
+                const description = data.description || `Descripción automática pendiente para ${title}.`;
+
+                imageEl.src = targetImg.src;
+                imageEl.alt = title;
+                titleEl.textContent = title;
+                descEl.textContent = description;
+
+                lightbox.classList.add('is-visible');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('lightbox-open');
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-visible');
+                lightbox.setAttribute('aria-hidden', 'true');
+                imageEl.src = '';
+                document.body.classList.remove('lightbox-open');
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-visible')) {
+                    closeLightbox();
+                }
+            });
+
+            const figures = doc.querySelectorAll('.card-grid figure');
+            figures.forEach((figure, index) => {
+                const img = figure.querySelector('img');
+                if (!img) {
+                    return;
+                }
+
+                const caption = figure.querySelector('figcaption');
+                const baseTitle = img.alt.trim() || `Diapositiva ${index + 1}`;
+                const detail = caption ? caption.textContent.trim() : baseTitle;
+                const autoDescription = `Descripción automática: ${detail}.`;
+
+                figure.dataset.title = baseTitle;
+                figure.dataset.description = autoDescription;
+                figure.setAttribute('tabindex', '0');
+                figure.setAttribute('role', 'button');
+                figure.setAttribute('aria-label', `Ampliar ${baseTitle}`);
+
+                if (!figure.querySelector('.figure-insight')) {
+                    const insight = doc.createElement('div');
+                    insight.className = 'figure-insight';
+                    const summary = detail.endsWith(".") ? detail : `${detail}.`;
+                    insight.innerHTML = `<strong>Qué significa:</strong> ${summary}`;
+                    figure.appendChild(insight);
+                }
+
+                figure.addEventListener('click', () => {
+                    openLightbox(img, figure.dataset);
+                });
+
+                figure.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openLightbox(img, figure.dataset);
+                    }
+                });
+            });
+
+            const shareButtons = doc.querySelectorAll('.share-trigger');
+            const shareFeedback = doc.querySelector('.share-feedback');
+            let feedbackTimer;
+
+            function showFeedback(message) {
+                if (!shareFeedback) {
+                    return;
+                }
+                shareFeedback.textContent = message;
+                shareFeedback.hidden = false;
+                clearTimeout(feedbackTimer);
+                feedbackTimer = setTimeout(() => {
+                    shareFeedback.hidden = true;
+                }, 4200);
+            }
+
+            async function handleShare(event) {
+                const button = event.currentTarget;
+                const targetId = button.dataset.share;
+                const section = targetId ? doc.getElementById(targetId) : null;
+                const heading = section ? section.querySelector('h2') : null;
+                const title = heading ? heading.textContent.trim() : 'Perspectiva de Sinaloa CE 2024';
+                const url = section ? `${window.location.origin}${window.location.pathname}#${targetId}` : window.location.href;
+                const text = `${title} · ADECEM`;
+
+                try {
+                    if (navigator.share) {
+                        await navigator.share({ title, text, url });
+                        showFeedback('Compartido correctamente.');
+                        return;
+                    }
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(url);
+                        showFeedback(`Enlace copiado: ${title}`);
+                        return;
+                    }
+                } catch (error) {
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(url);
+                        showFeedback(`Enlace copiado: ${title}`);
+                        return;
+                    }
+                    console.warn('No se pudo compartir automáticamente', error);
+                }
+
+                showFeedback(`Copia manualmente este enlace: ${url}`);
+            }
+
+            shareButtons.forEach((button) => {
+                button.addEventListener('click', handleShare);
+            });
+
+            const navLinks = Array.from(doc.querySelectorAll('.quick-nav nav a'));
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach((link) => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('is-active');
+                        } else {
+                            link.classList.remove('is-active');
+                        }
+                    });
+                });
+            }, {
+                root: null,
+                rootMargin: '-40% 0px -45% 0px',
+                threshold: 0.35
+            });
+
+            navLinks.forEach((link) => {
+                const targetId = link.getAttribute('href');
+                if (!targetId || targetId === '#') {
+                    return;
+                }
+                const section = doc.querySelector(targetId);
+                if (section) {
+                    observer.observe(section);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
