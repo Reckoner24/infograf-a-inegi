@@ -43,8 +43,3 @@ Este repositorio concentra los insumos analíticos y de comunicación utilizados
 - Publicaciones de análisis de organismos estatales (CODESIN, Sinaloa en Números) y medios especializados (El Economista, Olegario.mx).
 - Documentos de referencia sobre normatividad económica y adopción tecnológica (Secretaría de Economía, México ¿Cómo Vamos?, TNE, entre otros).
 - Consulta el listado completo en las referencias vinculadas dentro de `Resumen ejecutivo.md`.
-
-## Próximos pasos sugeridos
-- Validar las diapositivas marcadas como “se debe checar” dentro del cuaderno para asegurar consistencia de datos.
-- Corregir la codificación de caracteres del `Resumen ejecutivo.md` (guardar en UTF-8) para recuperar acentos y caracteres especiales en todos los visores.
-- Integrar controles automatizados (por ejemplo, scripts de verificación) si se planea actualizar periódicamente los indicadores CE2024.
